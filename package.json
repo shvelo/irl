@@ -1,0 +1,22 @@
+{
+  "name": "irl",
+  "version": "0.0.0",
+  "description": "RPG IRL",
+  "main": "irl.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shvelo/irl.git"
+  },
+  "keywords": [
+    "irl",
+    "rpg"
+  ],
+  "author": "Nick Shvelidze <captain@pirrate.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shvelo/irl/issues"
+  }
+}
