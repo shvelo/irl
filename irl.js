@@ -11,6 +11,10 @@ wss.on('connection', function(ws) {
         console.log('received: %s', message);
         wss.broadcast(message);
     });
+    ws.on('close', function(){
+        console.log("client disconnected");
+        wss.broadcast("Client disconnected");
+    })
     console.log("client connected");
     wss.broadcast('New client connected');
 });
