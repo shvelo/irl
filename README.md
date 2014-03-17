@@ -1,3 +1,3 @@
 # IRL
 
-A RPG in real life.
+A MMORPG in real life.
