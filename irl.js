@@ -7,6 +7,9 @@ var config = JSON.parse(process.env.IRL_CONFIG ||
              '{ "mongodb_url":"mongodb://localhost/test" }');
 
 mongoose.connect(config.mongodb_url);
+
+var Player = mongoose.model('Player', { id: String });
+
 var wss = new WebSocketServer({port: 8080});
 
 wss.broadcast = function(data) {
@@ -16,6 +19,8 @@ wss.broadcast = function(data) {
 
 wss.on('connection', function(ws) {
     var userid = crypto.createHash('sha1').update(uuid.v4()).digest("hex").substring(0,16);
+    var player = new Player({ id: userid });
+    player.save();
 
     ws.on('message', function(message) {
         console.log('received: %s from %s', message, userid);
