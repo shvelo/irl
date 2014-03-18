@@ -18,7 +18,7 @@ wss.broadcast = function(data) {
 };
 
 wss.on('connection', function(ws) {
-    var userid = crypto.createHash('sha1').update(uuid.v4()).digest("hex").substring(0,16);
+    var userid = uuid.v4();
     var player = new Player({ id: userid });
     player.save();
 
