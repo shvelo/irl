@@ -20,6 +20,7 @@
     "url": "https://github.com/shvelo/irl/issues"
   },
   "dependencies": {
-    "ws": "~0.4.31"
+    "ws": "~0.4.31",
+    "node-uuid": "~1.4.1"
   }
 }
