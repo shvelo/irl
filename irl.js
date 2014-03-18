@@ -1,5 +1,6 @@
 var WebSocketServer = require('ws').Server,
-    uuid = require('node-uuid');
+    uuid = require('node-uuid'),
+    crypto = require('crypto');
 
 
 var wss = new WebSocketServer({port: 8080});
@@ -10,7 +11,7 @@ wss.broadcast = function(data) {
 };
 
 wss.on('connection', function(ws) {
-    var userid = uuid.v4();
+    var userid = crypto.createHash('sha1').update(uuid.v4()).digest("hex").substring(0,16);
 
     ws.on('message', function(message) {
         console.log('received: %s from %s', message, userid);
