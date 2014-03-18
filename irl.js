@@ -1,7 +1,7 @@
 var WebSocketServer = require('ws').Server,
     uuid = require('node-uuid'),
-    crypto = require('crypto');
-
+    crypto = require('crypto'),
+    config = require('./config.js');
 
 var wss = new WebSocketServer({port: 8080});
 
