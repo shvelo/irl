@@ -1,8 +1,12 @@
 var WebSocketServer = require('ws').Server,
     uuid = require('node-uuid'),
     crypto = require('crypto'),
-    config = require('./config.js');
+    mongoose = require('mongoose');
 
+var config = JSON.parse(process.env.IRL_CONFIG ||
+             '{ "mongodb_url":"mongodb://localhost/test" }');
+
+mongoose.connect(config.mongodb_url);
 var wss = new WebSocketServer({port: 8080});
 
 wss.broadcast = function(data) {
